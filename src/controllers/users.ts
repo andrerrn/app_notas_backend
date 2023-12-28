@@ -2,6 +2,7 @@ import { RequestHandler} from "express";
 import createHttpError from "http-errors";
 import userModel from "../models/user";
 import bcrypt from "bcrypt";
+import { log } from "console";
 
 export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
     try {
@@ -67,6 +68,7 @@ export const login: RequestHandler <unknown, unknown,LoginBody, unknown> = async
     const password = req.body.password;
 
     try {
+        console.log("Received login request");
         if (!username || !password) {
             throw createHttpError(400, "Está faltando preencher algo.");
             
@@ -85,6 +87,7 @@ export const login: RequestHandler <unknown, unknown,LoginBody, unknown> = async
         }
 
         req.session.userId = user._id;
+        console.log("Sending response:", user);
         res.status(201).json(user);
 
     } catch (error) {

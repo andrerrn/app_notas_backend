@@ -54,8 +54,5 @@ app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
         res.status(statusCode).json({error: errorMessage});
 } );
 
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
-  });
 
 export default app;
