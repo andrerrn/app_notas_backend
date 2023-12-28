@@ -36,7 +36,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/notes", notesRoutes);
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://app-notas-front-j9hro9s3t-andrerrn.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://app-notas-front-j9hro9s3t-andrerrn.vercel.app/api');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next(createHttpError(404, "Endpoint não foi encontrado"));
